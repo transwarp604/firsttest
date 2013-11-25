@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="mimic.js"> </script>
+</head>
+<body>
+<input type="text" id="n1"/>
+<input type="text" id="n2"/>    
+<input type="button"  onclick="Add_Request();" value="Request"/>
+
+<script language="javascript">
+          function Add_Request() {
+           var method = "POST";
+		   var crossDomain = true;
+		   var setHeader = "Origin: http://foo.example";
+           var request = new XmlRpcRequest("https://samurai.sipgate.net/RPC2", method);
+           request.addParam("samurai.BalanceGet");
+		   var response = request.send();
+           alert(response.parseXML());
+        }
+</script>
+</body>
+</html>
